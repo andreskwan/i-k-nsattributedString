@@ -28,12 +28,13 @@ class ViewController: UIViewController {
     }
 
     func configureLabel() {
-        let fontSize = CGFloat(25)
+        let fontSize = CGFloat(28)
         
-        let titleString = "Mr. Andres Pachooooooooooooooooooooooooooooooooooo Pinguini kwansdfasdfasdfasasdasdfasdfasdf!"
+        let titleString = "Mr. Andres PachoPachoPachoPachoPachoPachoPachoPachoPacho Pinguini kwankwankwankwankwankwankwankwan!"
         
         let paragrapStyle = NSMutableParagraphStyle()
-        paragrapStyle.hyphenationFactor = 0.2
+        paragrapStyle.hyphenationFactor = 0.5
+        paragrapStyle.lineBreakMode = NSLineBreakMode.ByCharWrapping
 
         let fontType = UIFont(name: "American Typewriter", size: fontSize)
         
@@ -43,17 +44,22 @@ class ViewController: UIViewController {
             NSForegroundColorAttributeName : UIColor.whiteColor(),
             NSStrokeWidthAttributeName : -3,
             NSStrokeColorAttributeName : UIColor.blackColor()
-            ]
-
-        let attributedString = NSMutableAttributedString(string: titleString, attributes: attributeDict)
+        ]
+        //        paragrapStyle.alignment = NSTextAlignment.Left
+        //        paragrapStyle.lineBreakMode = NSLineBreakMode.ByTruncatingTail
+        //        let fontDescriptor = UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleBody)
+        //        UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        //        let fontType = UIFont(descriptor: fontDescriptor, size: fontSize)
         
-        attributedString.addAttribute(NSFontAttributeName, value: UIFont(name: "Chalkduster", size: fontSize + 5)!, range: NSRange(location: 5, length: 6))
+
+//        let attributedString = NSAttributedString(string: titleString, attributes: attributeDict)
+        let attributedString = NSAttributedString(string: titleString, attributes: attributeDict)
         
         label.numberOfLines = 0
         label.layer.borderColor = UIColor.blueColor().CGColor
         label.layer.borderWidth = 0.97
         label.attributedText = attributedString
-        label.lineBreakMode = NSLineBreakMode.ByCharWrapping
+//        label.lineBreakMode = NSLineBreakMode.ByCharWrapping
         
     }
     override func prepareForInterfaceBuilder() {
